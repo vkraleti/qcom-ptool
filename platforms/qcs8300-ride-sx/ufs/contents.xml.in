@@ -46,6 +46,7 @@
       <name>apps</name>
       <role>apps</role>
       <chipset>QCS8300</chipset>
+      <build_id>@BUILDID@</build_id>
       <windows_root_path>.\</windows_root_path>
       <linux_root_path>./</linux_root_path>
       <image_dir>apps_proc</image_dir>
@@ -54,6 +55,7 @@
       <name>common</name>
       <role>common</role>
       <chipset>QCS8300</chipset>
+      <build_id>@BUILDID@</build_id>
       <windows_root_path>.\</windows_root_path>
       <linux_root_path>./</linux_root_path>
       <image_dir>common</image_dir>
