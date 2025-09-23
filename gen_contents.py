@@ -27,7 +27,7 @@ def ParseXML(XMLFile):
         return None
 
 
-def UpdateMetaData(TemplateRoot, PartitionRoot):
+def UpdateMetaData(TemplateRoot, PartitionRoot, BuildId):
     ChipIdList = TemplateRoot.findall('product_info/chipid')
     DefaultStorageType = None
     for ChipId in ChipIdList:
@@ -64,6 +64,8 @@ def UpdateMetaData(TemplateRoot, PartitionRoot):
     for build in builds:
         Name = build.find('name')
         print(f"Build Name: {Name.text}")
+        new_build_id = ET.SubElement(build, "build_id")
+        new_build_id.text = BuildId
         if Name.text != "common":
             continue
         DownloadFile = build.find('download_file')
@@ -113,7 +115,8 @@ try:
     if sys.argv[1] == "-h" or sys.argv[1] == "--help":
         usage()
     try:
-        opts, rem = getopt.getopt(sys.argv[1:], "t:p:o:")
+        build_id = "@BUILDID@"
+        opts, rem = getopt.getopt(sys.argv[1:], "t:p:o:b:")
         for (opt, arg) in opts:
             if opt in ["-t"]:
                 template = arg
@@ -121,6 +124,8 @@ try:
                 partition_xml = arg
             elif opt in ["-o"]:
                 output_xml = arg
+            elif opt in ["-b"]:
+                build_id = arg
             else:
                 usage()
     except Exception as argerr:
@@ -133,7 +138,7 @@ try:
     print("Selected Partition XML:  " + partition_xml)
     partition_root = ParseXML(partition_xml)
 
-    UpdateMetaData(xml_root, partition_root)
+    UpdateMetaData(xml_root, partition_root, build_id)
 
     OutputTree = ET.ElementTree(xml_root)
     ET.indent(OutputTree, space="\t", level=0)
