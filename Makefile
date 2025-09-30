@@ -19,7 +19,7 @@ all: $(PLATFORMS) $(PARTITIONS_XML) $(CONTENTS_XML)
 	$(TOPDIR)/gen_partition.py -i $^ -o $@
 
 %/contents.xml: %/partitions.xml %/contents.xml.in
-	$(TOPDIR)/gen_contents.py -p $< -t $@.in -o $@
+	$(TOPDIR)/gen_contents.py -p $< -t $@.in -o $@ $${BUILD_ID:+ -b $(BUILD_ID)}
 
 lint:
 	# W605: invalid escape sequence
