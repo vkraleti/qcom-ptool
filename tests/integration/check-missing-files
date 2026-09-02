@@ -52,6 +52,7 @@ for xml in "$@"; do
           devcfg_iot.mbn) ;;
           devcfg_rfcomm.mbn) ;;
           devcfg_windows_hyp.mbn) ;;
+          device_programmer_ddr.elf) ;;
           dtb.bin) ;;
           efi.bin) ;;
           emmc_appsboot.mbn) ;;
@@ -68,12 +69,14 @@ for xml in "$@"; do
           logfs_ufs_8mb.bin) ;;
           multi_image.mbn) ;;
           multi_image_qti.mbn) ;;
+          oem_misc.mbn) ;;
           pdp.elf) ;;
           pdp_cdb.elf) ;;
           pmic.elf) ;;
           prog_firehose_ddr.elf) ;;
           prog_firehose_lite.elf) ;;
           qsahara_device_programmer.xml) ;;
+          qti_misc.mbn) ;;
           qupv3fw.elf) ;;
           rootfs.img) ;;
           rpm.mbn) ;;
@@ -92,6 +95,7 @@ for xml in "$@"; do
           shrm.elf) ;;
           signed_firmware_soc_view.elf) ;;
           soccp.bin) ;;
+          soccp.mbn) ;;
           storsec.mbn) ;;
           tme_config.elf) ;;
           tools.fv) ;;
@@ -109,6 +113,7 @@ for xml in "$@"; do
           xbl_config.elf) ;;
           xbl_config_devprg.elf) ;;
           xbl_feature_config.elf) ;;
+          xbl_ramdump.elf) ;;
           xbl_s.melf) ;;
           xbl_s_devprg_ns.melf) ;;
           xbl_sc.elf) ;;
